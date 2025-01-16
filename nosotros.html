@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/scripts.js" defer></script>
+    <script src="js/servicios.js" defer></script>
+    <script src="js/supplies.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nosotros.css">
+    <link rel="stylesheet" href="css/servicios.css">
+    <link rel="stylesheet" href="css/suministros.css">
+    <link rel="stylesheet" href="css/supplies.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        @media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1140px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+nav {
+            background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.938), rgba(0, 49, 108, 0.86), rgba(0, 49, 108, 0.975), rgba(0, 49, 108, 0.805), rgba(0, 49, 108, 0.86));
+            padding: 10px 50px;
+            padding-right: 100px;
+        }
+
+        /* Estilos para el submenú */
+/* Estilos para el submenú */
+nav ul li {
+    font-size: 16px;
+    position: relative; /* Necesario para que el submenú se posicione respecto a este li */
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul li ul {
+    position: absolute;
+    top: 30px; /* Elevación ligera */
+    left: 0;
+    min-width: 250px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    padding: 10px;
+    list-style: none;
+    display: none;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px); /* Desplazamiento suave hacia arriba */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+nav ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Movimiento suave */
+    transition-delay: 0s; /* Elimina el retraso de transición */
+}
+
+/* Estilo de los enlaces del submenú */
+nav ul li ul li a {
+    color: #00306c;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, padding 0.3s ease;
+    display: block;
+    padding: 6px 12px; /* Reduce el padding para acercar los elementos */
+    border-radius: 4px;
+    margin: 3px 0; /* Reduce el margen entre los items */
+}
+
+/* Estilo de hover en los enlaces */
+nav ul li ul li a:hover {
+    background-color: #ff7f50;
+    color: white;
+}
+
+/* Cambiar color de enlace principal si el submenú está visible */
+nav ul li.submenu:hover > a,
+nav ul li.submenu:focus-within > a {
+    color: #ff7f50;
+}
+
+/* Mejorar la visibilidad y estética de los items */
+nav ul li ul li {
+    padding: 0; /* Elimina relleno extra en los elementos */
+    margin: 0; /* Elimina margen extra */
+}
+
+
+
+
+/* Animación para el desplazamiento hacia arriba */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    background-size: contain; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+}
+
+
+header {
+    margin-top: 80px; /* Ajusta el valor según el tamaño de tu nav */
+    padding: 100px;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(to right, rgba(0, 49, 108, 0.7), rgba(0, 49, 108, 0.141), rgba(255, 255, 255, 0.6)), url('img/424982895_849675293840382_3867228624141884198_n.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+header h1 {
+    font-size: 3rem;          /* Tamaño grande para el título */
+    font-weight: 700;         /* Negrita */
+    margin-bottom: 20px;      /* Separación inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+header p {
+    font-size: 1.2rem;        /* Tamaño de fuente más pequeño */
+    font-weight: 300;         /* Peso ligero */
+    margin: 0;                /* Sin margen */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-weight: bold;
+}
+   .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #00306c;
+            font-weight: 500;
+
+        }
+        
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+
+
+        /* Estilo para la sección Misión y Visión */
+
+        /* Estilo para la sección Misión y Visión */
+#mission-vision-cont {
+    background-image: url('img/freepik__expand__40756.png'); /* Fondo de imagen */
+    background-size: cover; /* Hace que la imagen cubra toda la sección */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    padding: 60px 0; /* Ajusta el padding para dar más espacio alrededor del contenido */
+}
+
+.mission-vision {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    gap: 10px; /* Espaciado entre columnas */
+    background-color: rgba(255, 255, 255, 0.874); /* Fondo blanco semitransparente para mejorar la legibilidad */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 8px; /* Redondea las esquinas */
+}
+
+.mission-vision .column {
+    flex: 1; /* Las columnas ocupan el mismo ancho */
+    max-width: 48%; /* Limita el ancho máximo para una mejor apariencia */
+    text-align: justify; /* Justifica los textos */
+}
+
+.mission-vision h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #00306c;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.mission-vision p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+
+
+#team-section {
+    background-color: #f4f6f8; /* Fondo gris claro */
+    padding: 60px 0; /* Espaciado superior e inferior */
+}
+
+#team-section .team {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#team-section .team-member {
+    background-color: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    padding: 30px;
+    transition: transform 0.3s ease-in-out;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#team-section .team-member:hover {
+    transform: translateY(-10px);
+}
+
+#team-section .team-member img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#team-section .team-member h3 {
+    color: #00306c;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#team-section .team-member p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+#team-section {
+    background-color: #ffffff; /* Fondo gris claro */
+    padding: 60px 0; /* Espaciado superior e inferior */
+}
+
+
+
+#team-section .team-member:hover {
+    transform: translateY(-10px);
+}
+
+#team-section .team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0px;
+}
+
+#team-section .team-member h3 {
+    color: #00306c;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#team-section .team-member p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .mission-vision {
+                flex-direction: column;
+            }
+
+            .mission-vision .column {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        #about-us {
+    padding: 60px 0;
+}
+
+#about-us {
+    background-color: #ffffff;
+    padding-top: 100px; /* Añadido padding en la parte inferior */
+    padding-bottom: 100px; /* Añadido padding en la parte inferior */
+}
+
+
+#about-us .container {
+    position: relative;
+}
+
+#about-us p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+#about-us .container::after {
+    display: block;
+    background-color: #ffffff; /* Fondo azul debajo del párrafo */
+    height: 2px; /* Tamaño de la línea */
+    margin-top: 20px; /* Ajusta el espacio debajo del párrafo */
+}
+
+
+
+/* Estilos para los elementos que se desplazarán */
+.container h1 {
+    opacity: 0; /* Comienza invisible */
+    transform: translateY(50px); /* Empieza desplazado hacia abajo */
+    animation: slideUp 0.8s ease-out forwards; /* Aplica la animación */
+    animation-delay: 0.3s; /* Retarda ligeramente la animación */
+}
+
+
+/* Estilos para el footer */
+.footer {
+    background-color: #00306c;
+    color: #fff;
+    padding: 40px 0;
+    padding-bottom: 1px;
+}
+
+.footer h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: large;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .social-links {
+    padding: 0;
+}
+
+.footer .social-links li {
+    margin-bottom: 10px;
+}
+
+.footer .social-links li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer .social-links li a:hover {
+    color: #ff7f50;
+}
+
+.footer .text-center p {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+.text-center p {
+    margin-top: 2px;
+    margin-bottom: 0 !important;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="img/dki9xubt.png" alt="Logo de Action Soluciones - Innovación en Telecomunicaciones" width="150">
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li class="submenu">
+                <a href="servicios.html">Servicios</a>
+                <ul class="submenu-items">
+                    <li><a href="servicios.html#Proyectos In-Building">Proyectos In-Building</a></li>
+                    <li><a href="servicios.html#Servicios Indoor Prediction">Indoor Prediction</a></li>
+                    <li><a href="servicios.html#Servicios Planimetrías Isométricas">Planimetrías Isométricas</a></li>
+                    <li><a href="servicios.html#Diseños Eléctricos Telecom">Diseños Eléctricos</a></li>
+                    <li><a href="servicios.html#Mediciones Walk Test y Post Proceso">Mediciones y Post Proceso</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
+
+    <header>
+        <div class="container">
+            <h1>ACTION SOLUCIONES</h1>
+            <p>Soluciones Integrales en Telecomunicaciones y IoT</p>
+        </div>
+    </header>
+
+    <!-- Sección Quiénes Somos -->
+    <section id="about-us" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">¿Quiénes Somos?</h2>
+            <p style="font-size: 1.2rem; color: #555; line-height: 1.8; max-width: 900px; margin: 20px auto;">
+                Action Soluciones (A&S) fue fundada en 2014 como respuesta al crecimiento acelerado del sector de telecomunicaciones e IoT. Nos especializamos en ofrecer soluciones de alta calidad en telecomunicaciones, ingeniería, construcción In-Building, y la integración de sistemas activos y pasivos. Trabajamos con las últimas tecnologías como WCDMA-LTE y 5GNR para brindar soluciones a medida para nuestros clientes en la industria de las telecomunicaciones.
+            </p>
+            <!-- Div adicional para el fondo debajo del párrafo -->
+            <div class="background-color-below">
+                <!-- Contenido adicional si lo deseas aquí -->
+            </div>
+        </div>
+    </section>
+    
+    
+
+
+    <!-- Sección Misión y Visión -->
+    <section id="mission-vision-cont">
+        <div class="container">
+    
+            <div class="mission-vision">
+                <!-- Misión -->
+                <div class="column">
+                    <h3><i class="fas fa-bullseye" style="color: #007bff; margin-right: 10px;"></i> Misión</h3>
+                    <p>
+                        En Action Soluciones, nuestra misión es ser el socio de confianza en suministros y servicios para redes de telefonía celular. Nos dedicamos a proporcionar soluciones integrales y de alta calidad que impulsan la conectividad y la eficiencia operativa para nuestros clientes. Estamos comprometidos con la innovación continua, la excelencia en el servicio al cliente y el desarrollo sostenible, brindando un impacto positivo a nuestras comunidades y el medio ambiente.
+                    </p>
+                </div>
+    
+                <!-- Visión -->
+                <div class="column">
+                    <h3><i class="fas fa-globe" style="color: #007bff; margin-right: 10px;"></i> Visión</h3>
+                    <p>
+                        Ser reconocidos como la empresa líder en soluciones tecnológicas para telecomunicaciones a nivel Latinoamérica, ofreciendo servicios innovadores y sostenibles que contribuyan al avance de la infraestructura digital en la región, mejorando la conectividad y contribuyendo al desarrollo de las industrias tecnológicas del futuro.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Sección Nuestro Equipo -->
+<section id="team-section">
+    <div class="container">
+        <h2 class="section-title mb-6">Nuestro Equipo</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="img/" alt="Miembro del equipo">
+                <h3>Mauricio Gómez</h3>
+                <p>Gerente General</p>
+            </div>
+            <div class="team-member">
+                <img src="img/Arturo.png" alt="Miembro del equipo">
+                <h3>Arturo Barros</h3>
+                <p>Gerente de Operaciones</p>
+            </div>
+            <div class="team-member">
+                <img src="img/Grace.png" alt="Miembro del equipo">
+                <h3>Grace Álvarez</h3>
+                <p>ING TI y Documentación</p>
+            </div>
+            <div class="team-member">
+                <img src="img/Yerko.png" alt="Miembro del equipo">
+                <h3> Yerko Monje</h3>
+                <p>ING Eléctrico SEC-A</p>
+            </div> 
+            <div class="team-member">
+                <img src="img/image (1).png" alt="Miembro del equipo">
+                <h3>Nelson Rodríguez</h3>
+                <p>Técnico RF</p>
+            </div>
+            <div class="team-member">
+                <img src="img/image (3).png" alt="Miembro del equipo">
+                <h3>Raúl Pedernera</h3>
+                <p>Técnico RF</p>
+            </div>
+            <div class="team-member">
+                <img src="img/image (2).png" alt="Miembro del equipo">
+                <h3>Eugenio González</h3>
+                <p>Técnico RF</p>
+            </div>
+            <div class="team-member">
+                <img src="img/image (4).png" alt="Miembro del equipo">
+                <h3>Raúl Gamonal</h3>
+                <p>Técnico RF</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Sobre Nosotros</h5>
+                <p>Ofrecemos soluciones de telecomunicaciones innovadoras y eficientes para ayudar a las empresas a crecer y conectar con el mundo de manera más fácil y rápida.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Enlaces Rápidos</h5>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Redes Sociales</h5>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+<div class="text-center">
+    <p>&copy; 2025 Action Soluciones. Todos los derechos reservados.</p>
+</div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Crea un Intersection Observer para detectar cuando los elementos entran en la vista
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            // Si el servicio entra en la vista
+            if (entry.isIntersecting) {
+                // Alterna entre 'visible-left' y 'visible-right' basado en el índice
+                if (index % 2 === 0) {
+                    entry.target.classList.add('visible-left');
+                } else {
+                    entry.target.classList.add('visible-right');
+                }
+                observer.unobserve(entry.target); // Deja de observar el elemento después de hacerlo visible
+            }
+        });
+    }, {
+        threshold: 0.5 // La animación se activa cuando el 50% del elemento es visible
+    });
+
+    // Observa todos los servicios
+    const services = document.querySelectorAll('.service');
+    services.forEach((service, index) => {
+        observer.observe(service);
+    });
+});
+
+    </script>
+</body>
+</html>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Crea un Intersection Observer para detectar cuando los elementos entran en la vista
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            // Si el servicio entra en la vista
+            if (entry.isIntersecting) {
+                // Alterna entre 'visible-left' y 'visible-right' basado en el índice
+                if (index % 2 === 0) {
+                    entry.target.classList.add('visible-left');
+                } else {
+                    entry.target.classList.add('visible-right');
+                }
+                observer.unobserve(entry.target); // Deja de observar el elemento después de hacerlo visible
+            }
+        });
+    }, {
+        threshold: 0.5 // La animación se activa cuando el 50% del elemento es visible
+    });
+
+    // Observa todos los servicios
+    const services = document.querySelectorAll('.service');
+    services.forEach((service, index) => {
+        observer.observe(service);
+    });
+});
+
+    </script>
+</body>
+</html>

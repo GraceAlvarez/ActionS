@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/scripts.js" defer></script>
+    <script src="js/servicios.js" defer></script>
+    <script src="js/supplies.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nosotros.css">
+    <link rel="stylesheet" href="css/servicios.css">
+    <link rel="stylesheet" href="css/suministros.css">
+    <link rel="stylesheet" href="css/supplies.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        @media (min-width: 1200px) {
+            .container,
+            .container-lg,
+            .container-md,
+            .container-sm,
+            .container-xl {
+                max-width: 1140px; /* Establece el máximo ancho a 1140px */
+                padding-top: 30px;  /* Agrega padding superior */
+                padding-bottom: 30px; /* Agrega padding inferior */
+            }
+            .section .row {
+                width: 100%;
+                margin: 0 auto;
+                
+            }
+        }
+
+        .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-bottom: 40px;
+}
+
+        /* Estilo general de la sección de servicios */
+        .services {
+            padding: 60px 0;
+            background-color: #222; 
+            color: #fff; 
+            text-align: center;
+            background-image: url(img/fondo_servicios.png); 
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat
+        }
+        .services h2.section-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .services p {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .service-card {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.804), #00316cb6);
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Asegura que la tarjeta ocupe todo el alto disponible */
+            padding: 20px;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px; /* Ajusta el alto para que todas las imágenes tengan el mismo tamaño */
+            object-fit: cover; /* Asegura que la imagen mantenga su proporción sin deformarse */
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 20px 0 10px;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Hace que el texto ocupe el espacio disponible */
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #007bff00;
+            border-radius: 5px;
+            border-color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: auto; /* Asegura que el botón se quede al final de la tarjeta */
+        }
+
+        .btn-primary:hover {
+    background-color: #ff7f50; /* Color de fondo al pasar el mouse */
+    color: #fff;
+    border-color: #fff; /* Mantiene el borde blanco en el hover */
+}
+/* Estilo para las características con iconos */
+.features {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #00306c;   
+        }
+
+        .feature-item {
+            padding: 20px;
+            background-color: #ffffff00;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: #69b9ff;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h4 {
+            color: #00306c;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .clients h2 {
+    text-align: center;          /* Asegura que el título esté centrado */
+    font-weight: 700;            /* Peso de la fuente */
+    margin-bottom: 30px;         /* Espacio inferior */
+    color: #00306c;              /* Color */
+}
+
+.clients {
+    text-align: center;
+    background-image: url('img/client-background.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* La imagen cubrirá toda la sección */
+    background-position: center; /* La imagen estará centrada */
+    background-repeat: no-repeat; /* No se repetirá */
+    padding: 60px 0; /* Espaciado para la sección */
+    background-color: #a5c9f561;
+    padding-bottom: 0px;
+}
+
+.carousel-container {
+    overflow: hidden; /* Oculta elementos fuera del contenedor */
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scrollLeft 10s linear infinite;
+}
+
+.carousel-track img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain; /* Ajusta la imagen para que se vea completa sin recortarla */
+    border-radius: 50%;
+    margin: 0 15px;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container, .services, .features, .clients, .contact, .footer {
+    margin-bottom: 0; /* Elimina márgenes inferiores */
+    padding-bottom: 0; /* Elimina relleno inferior */
+}
+
+
+
+        /* Estilos para la sección de contacto */
+.contact {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.contact h2 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #00306c;
+}
+
+.contact .form-group {
+    margin-bottom: 20px;
+}
+
+.contact .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.contact button {
+    background-color: #00306c;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #ff7f50;
+}
+
+.contact .col-md-6 {
+    padding: 20px;
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #00306c;
+    color: #fff;
+    padding: 40px 0;
+    padding-bottom: 1px;
+}
+.footer h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .social-links {
+    padding: 0;
+}
+
+.footer .social-links li {
+    margin-bottom: 10px;
+}
+
+.footer .social-links li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer .social-links li a:hover {
+    color: #ff7f50;
+}
+
+.footer .text-center p {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+.text-center p {
+    margin-top: 2px;
+    margin-bottom: 0 !important;
+}
+/* Estilo personalizado para los logos del carrusel */
+.carousel-item img {
+    max-height: 100px; /* Limita la altura máxima de las imágenes */
+    object-fit: contain; /* Asegura que las imágenes mantengan sus proporciones */
+}
+.carousel-inner {
+    padding: 20px 0; /* Agrega algo de espacio encima y debajo del carrusel */
+}
+
+
+nav {
+            background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.938), rgba(0, 49, 108, 0.86), rgba(0, 49, 108, 0.975), rgba(0, 49, 108, 0.805), rgba(0, 49, 108, 0.86));
+            padding: 10px 50px;
+            padding-right: 100px;
+        }
+
+/* Estilos para el submenú */
+nav ul li {
+    font-size: 16px;
+    position: relative; /* Necesario para que el submenú se posicione respecto a este li */
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul li ul {
+    position: absolute;
+    top: 30px; /* Elevación ligera */
+    left: 0;
+    min-width: 250px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    padding: 10px;
+    list-style: none;
+    display: none;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px); /* Desplazamiento suave hacia arriba */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+nav ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Movimiento suave */
+    transition-delay: 0s; /* Elimina el retraso de transición */
+}
+
+/* Estilo de los enlaces del submenú */
+nav ul li ul li a {
+    color: #00306c;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, padding 0.3s ease;
+    display: block;
+    padding: 6px 12px; /* Reduce el padding para acercar los elementos */
+    border-radius: 4px;
+    margin: 3px 0; /* Reduce el margen entre los items */
+}
+
+/* Estilo de hover en los enlaces */
+nav ul li ul li a:hover {
+    background-color: #ff7f50;
+    color: white;
+}
+
+/* Cambiar color de enlace principal si el submenú está visible */
+nav ul li.submenu:hover > a,
+nav ul li.submenu:focus-within > a {
+    color: #ff7f50;
+}
+
+/* Mejorar la visibilidad y estética de los items */
+nav ul li ul li {
+    padding: 0; /* Elimina relleno extra en los elementos */
+    margin: 0; /* Elimina margen extra */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="img/dki9xubt.png" alt="Logo de Action Soluciones - Innovación en Telecomunicaciones" width="150">
+        </div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li class="submenu">
+                <a href="servicios.html">Servicios</a>
+                <ul class="submenu-items">
+                    <li><a href="servicios.html#Proyectos In-Building">Proyectos In-Building</a></li>
+                    <li><a href="servicios.html#Servicios Indoor Prediction">Indoor Prediction</a></li>
+                    <li><a href="servicios.html#Servicios Planimetrías Isométricas">Planimetrías Isométricas</a></li>
+                    <li><a href="servicios.html#Diseños Eléctricos Telecom">Diseños Eléctricos</a></li>
+                    <li><a href="servicios.html#Mediciones Walk Test y Post Proceso">Mediciones y Post Proceso</a></li>
+                </ul>
+            </li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-left" id="heroLeft">
+            <h3>NETWORK DESIGN AND SUPPLIES</h3>
+            <h3>IMPLEMENTATION SOON</h3>
+            <button onclick="window.location.href='#contacto'">Contáctanos</button>
+        </div>
+        <div class="hero-content" id="heroContent">
+            <h2 id="hero-title">Innovación en Telecomunicaciones</h2>
+            <p id="hero-description">Transformamos la conectividad de tu empresa con soluciones avanzadas. ¡Descubre cómo podemos ayudarte a crecer!</p>
+        </div>
+        <video class="hero-video" id="heroVideo" autoplay loop muted playsinline>
+            <source src="img/hero.Action (2).mp4" type="video/mp4">
+            <p>Video no disponible. Contáctanos para más información.</p>
+        </video>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="about-us" id="nosotros">
+        <div class="container">
+            <h2 class="section-title text-center">Sobre Nosotros</h2>
+            <p>En Action Soluciones, nos especializamos en ofrecer soluciones integrales y de alta calidad para la industria de las telecomunicaciones. Nuestro enfoque está en impulsar la conectividad y mejorar la eficiencia operativa de nuestros clientes, brindando servicios innovadores y adaptados a sus necesidades específicas.</p>
+            <p>Nos comprometemos con la innovación constante, la excelencia en el servicio al cliente y el desarrollo sostenible, asegurando que cada proyecto se lleve a cabo con los más altos estándares.</p>
+            <a href="nosotros.html" class="btn">Ver más</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+<section class="services" id="servicios">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Nuestros Servicios</h2>
+        <p class="text-center" style="color: #00306c; font-weight: bold; font-size: 20px;">
+            En Action Soluciones, ofrecemos servicios especializados para optimizar y garantizar el éxito de los proyectos de telecomunicaciones.
+        </p>
+        
+        <div class="row">
+            <!-- Servicio 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="img/network-design.png" alt="Diseño de Redes" class="service-image">
+                    <h3 class="service-title">Servicios Indoor Prediction</h3>
+                    <p class="service-description">Optimización avanzada de redes inalámbricas en interiores, garantizando una conexión más confiable y mejor rendimiento.</p>
+                    <a href="servicios.html#Servicios Indoor Prediction" class="btn btn-primary">Saber Más</a>
+                </div>
+            </div>
+            <!-- Servicio 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="img/implementations.png" alt="Implementación de Soluciones" class="service-image">
+                    <h3 class="service-title">Planimetrías Isométricas</h3>
+                    <p class="service-description">Representaciones precisas a escala que facilitan el despliegue de proyectos y aseguran el cumplimiento exacto de los diseños.</p>
+                    <a href="servicios.html#Servicios Planimetrías Isométricas" class="btn btn-primary">Saber Más</a>
+                </div>
+            </div>
+            <!-- Servicio 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="img/supplies.png" alt="Suministros Tecnológicos" class="service-image">
+                    <h3 class="service-title">Diseños Eléctricos Telecom</h3>
+                    <p class="service-description">Soluciones de diseño eléctrico para proyectos In-Building, cumpliendo con la normativa chilena vigente y desarrolladas por ingenieros especializados.</p>
+                    <a href="servicios.html#Diseños Eléctricos Telecom" class="btn btn-primary">Saber Más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Características -->
+    <section class="features">
+        <div class="container">
+            <h2>SUMINISTROS</h2>
+            <p>A&S está en proceso de conseguir la representación en Chile del proveedor CENRF para el suministro de pasivos para el despliegue de sistemas DAS (topologías SISO-MIMO 5G).</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Mejor Tiempo de Respuesta</h4>
+                        <p>Priorizamos la rapidez en la atención y entrega de soluciones para nuestros clientes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-box"></i>
+                        <h4>Stock Local</h4>
+                        <p>Mantenemos productos disponibles en el país para una respuesta ágil y efectiva.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-tags"></i>
+                        <h4>Mejores Precios</h4>
+                        <p>Ofrecemos precios competitivos sin comprometer la calidad de nuestros productos y servicios.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Productos Customizados</h4>
+                        <p>Soluciones personalizadas para satisfacer las necesidades específicas de cada cliente.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-industry"></i>
+                        <h4>Fabricantes de Productos de Alto Estándar</h4>
+                        <p>Trabajamos con fabricantes reconocidos como AT&T, RFS y ZTE.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-tools"></i>
+                        <h4>Desarrollador de Soluciones Activas</h4>
+                        <p>Diseñamos soluciones tecnológicas avanzadas para conectividad y redes móviles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>                
+
+    
+
+    <!-- Sección de Clientes -->
+<section class="clients">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Nuestros Clientes</h2>
+        <p class="text-center mt-4" style="color: #00306c; font-weight: bold; font-size: 20px;">
+            Trabajamos con empresas líderes en la industria de telecomunicaciones, ayudándoles a transformar su infraestructura tecnológica y optimizar sus operaciones.
+        </p>
+
+        <!-- Carrusel de Clientes Continuo -->
+        <div class="carousel-container mt-4">
+            <div class="carousel-track">
+                <!-- Imágenes de clientes -->
+                <img src="img/Cliente1-removebg-preview.png" alt="Cliente 1">
+                <img src="img/Cliente2-removebg-preview.png" alt="Cliente 2">
+                <img src="img/Cliente3-removebg-preview.png" alt="Cliente 3">
+                <img src="img/Cliente4-removebg-preview.png" alt="Cliente 4">
+                <img src="img/Cliente5-removebg-preview.png" alt="Cliente 5">
+                <!-- Duplicar imágenes para efecto infinito -->
+                <img src="img/Cliente1-removebg-preview.png" alt="Cliente 1">
+                <img src="img/Cliente2-removebg-preview.png" alt="Cliente 2">
+                <img src="img/Cliente3-removebg-preview.png" alt="Cliente 3">
+                <img src="img/Cliente4-removebg-preview.png" alt="Cliente 4">
+                <img src="img/Cliente5-removebg-preview.png" alt="Cliente 5">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Formulario de Contacto -->
+<section class="contact" id="contacto" style="background-color: #ffffff; padding: 80px 0 10px;">
+    <div class="container">
+        <h2 class="section-title text-center mb-4" style="color: #00306c; font-weight: 600; font-size: 36px;">Contáctanos</h2>
+        <p class="text-center mb-5" style="font-size: 18px; color: #777;">Si tienes alguna pregunta o deseas obtener más información sobre nuestros servicios, ¡estamos aquí para ayudarte! Completa el formulario o utiliza los datos de contacto que se encuentran a continuación.</p>
+        <div class="row justify-content-between">
+            <!-- Formulario -->
+            <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <form action="#" method="POST" id="contactForm" class="p-4 rounded shadow-sm bg-light">
+                    <div class="form-group">
+                        <label for="name" style="font-weight: 500; color: #00306c;">Nombre:</label>
+                        <input type="text" class="form-control" id="name" name="name" required placeholder="Ingresa tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" style="font-weight: 500; color: #00306c;">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="email" name="email" required placeholder="Ingresa tu correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" style="font-weight: 500; color: #00306c;">Mensaje:</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Escribe tu mensaje"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #00306c; border: none; font-weight: 500;">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <!-- Datos de Contacto -->
+            <div class="col-lg-5 col-md-6 d-flex justify-content-center">
+                <div class="contact-details" style="max-width: 400px; text-align: left;">
+                    <h3 class="contact-title" style="color: #00306c; font-size: 28px; font-weight: 600; margin-bottom: 40px;">Datos de Contacto</h3>
+                    <div class="contact-item mb-5 d-flex align-items-center">
+                        <i class="fas fa-phone-alt" style="color: #00306c; font-size: 24px; margin-right: 15px;"></i>
+                        <p style="font-size: 18px; color: #555; margin-top: 0; margin-bottom: 0;"> <strong>Teléfono:</strong> +569 79961595</p>
+                    </div>
+                    <div class="contact-item mb-5 d-flex align-items-center">
+                        <i class="fas fa-envelope" style="color: #00306c; font-size: 24px; margin-right: 15px;"></i>
+                        <p style="font-size: 18px; color: #555; margin-top: 0; margin-bottom: 0;"> <strong>Correo:</strong> contacto@action.com</p>
+                    </div>
+                    <div class="contact-item mb-5 d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt" style="color: #00306c; font-size: 24px; margin-right: 15px;"></i>
+                        <p style="font-size: 18px; color: #555; margin-top: 0; margin-bottom: 0; white-space: nowrap;"> <strong>Dirección:</strong> ANTONIO BELLET 193, PROVIDENCIA</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Sobre Nosotros</h5>
+                <p>Ofrecemos soluciones de telecomunicaciones innovadoras y eficientes para ayudar a las empresas a crecer y conectar con el mundo de manera más fácil y rápida.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Enlaces Rápidos</h5>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Redes Sociales</h5>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+<div class="text-center">
+    <p>&copy; 2025 Action Soluciones. Todos los derechos reservados.</p>
+</div>
+
+
+</body>
+
+
+</html>
+

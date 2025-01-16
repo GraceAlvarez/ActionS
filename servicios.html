@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/scripts.js" defer></script>
+    <script src="js/servicios.js" defer></script>
+    <script src="js/supplies.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nosotros.css">
+    <link rel="stylesheet" href="css/servicios.css">
+    <link rel="stylesheet" href="css/suministros.css">
+    <link rel="stylesheet" href="css/supplies.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        @media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1140px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+nav {
+            background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.938), rgba(0, 49, 108, 0.86), rgba(0, 49, 108, 0.975), rgba(0, 49, 108, 0.805), rgba(0, 49, 108, 0.86));
+            padding: 10px 50px;
+            padding-right: 100px;
+        }
+
+        /* Estilos para el submenú */
+/* Estilos para el submenú */
+nav ul li {
+    font-size: 16px;
+    position: relative; /* Necesario para que el submenú se posicione respecto a este li */
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul li ul {
+    position: absolute;
+    top: 30px; /* Elevación ligera */
+    left: 0;
+    min-width: 250px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    padding: 10px;
+    list-style: none;
+    display: none;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px); /* Desplazamiento suave hacia arriba */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+nav ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Movimiento suave */
+    transition-delay: 0s; /* Elimina el retraso de transición */
+}
+
+/* Estilo de los enlaces del submenú */
+nav ul li ul li a {
+    color: #00306c;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, padding 0.3s ease;
+    display: block;
+    padding: 6px 12px; /* Reduce el padding para acercar los elementos */
+    border-radius: 4px;
+    margin: 3px 0; /* Reduce el margen entre los items */
+}
+
+/* Estilo de hover en los enlaces */
+nav ul li ul li a:hover {
+    background-color: #ff7f50;
+    color: white;
+}
+
+/* Cambiar color de enlace principal si el submenú está visible */
+nav ul li.submenu:hover > a,
+nav ul li.submenu:focus-within > a {
+    color: #ff7f50;
+}
+
+/* Mejorar la visibilidad y estética de los items */
+nav ul li ul li {
+    padding: 0; /* Elimina relleno extra en los elementos */
+    margin: 0; /* Elimina margen extra */
+}
+
+
+        
+
+        #inicio {
+            margin-top: 80px;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.466)), 
+                url(img/fondo_servicios.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 300px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container h1 {
+            color: #002b5c;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+     
+        .section {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .service {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            height: 400px;
+            position: relative;
+        }
+
+        #servicio-subtitulo {
+    color: #004080;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Comienza invisible */
+    transform: translateY(50px); /* Empieza desplazado hacia abajo */
+    animation: slideUp 0.8s ease-out forwards; /* Aplica la animación */
+    animation-delay: 0.5s; /* Retraso mayor para el subtítulo */
+}
+
+/* Animación para el desplazamiento hacia arriba */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+        .service h2 {
+    font-size: 36px; /* Tamaño grande para el título dentro de la sección de servicios */
+    font-weight: bold; /* Para hacer el título más destacado */
+    color: #002b5c;
+}
+
+.service p {
+    font-size: 18px; /* Tamaño más grande para el párrafo */
+    line-height: 1.6; /* Mejorar el espaciado entre líneas */
+}
+
+
+        /* Sección de color detrás de la imagen */
+        .service img {
+            width: 600px;
+            height: 400px;
+            object-fit: cover;
+            margin-right: 80px;
+            z-index: 1;
+        }
+
+        /* Fondo detrás del texto */
+        .service div {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        /* Cuadro de color para las secciones */
+        .service:nth-child(odd) {
+            background-color: #f5faff;
+        }
+
+        .service:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Estilos del texto */
+        .service .text {
+            font-size: 1rem;
+        }
+
+
+
+
+/* Estilos para los elementos que se desplazarán */
+.container h1 {
+    opacity: 0; /* Comienza invisible */
+    transform: translateY(50px); /* Empieza desplazado hacia abajo */
+    animation: slideUp 0.8s ease-out forwards; /* Aplica la animación */
+    animation-delay: 0.3s; /* Retarda ligeramente la animación */
+}
+
+
+/* Estilos para el footer */
+.footer {
+    background-color: #00306c;
+    color: #fff;
+    padding: 40px 0;
+    padding-bottom: 1px;
+}
+
+.footer h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: large;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .social-links {
+    padding: 0;
+}
+
+.footer .social-links li {
+    margin-bottom: 10px;
+}
+
+.footer .social-links li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer .social-links li a:hover {
+    color: #ff7f50;
+}
+
+.footer .text-center p {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+.text-center p {
+    margin-top: 2px;
+    margin-bottom: 0 !important;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="img/dki9xubt.png" alt="Logo de Action Soluciones - Innovación en Telecomunicaciones" width="150">
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li class="submenu">
+                <a href="servicios.html">Servicios</a>
+                <ul class="submenu-items">
+                    <li><a href="servicios.html#Proyectos In-Building">Proyectos In-Building</a></li>
+                    <li><a href="servicios.html#Servicios Indoor Prediction">Indoor Prediction</a></li>
+                    <li><a href="servicios.html#Servicios Planimetrías Isométricas">Planimetrías Isométricas</a></li>
+                    <li><a href="servicios.html#Diseños Eléctricos Telecom">Diseños Eléctricos</a></li>
+                    <li><a href="servicios.html#Mediciones Walk Test y Post Proceso">Mediciones y Post Proceso</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
+
+    <!-- Introducción a Servicios -->
+    <section class="section" id="inicio">
+        <div class="container">
+            <h1 class="text-center">Nuestros Servicios</h1>
+            <h5 id="servicio-subtitulo" class="text-center mt-4">Descubre cómo Action Soluciones puede transformar tus proyectos de telecomunicaciones con nuestras soluciones innovadoras y personalizadas.</h5>
+        </div>
+    </section>
+    
+    
+    <!-- Servicios -->
+<section class="section">
+    <div class="service" id="Proyectos In-Building">
+        <div class="color-box"></div>
+        <img src="img/ss1.png" alt="Proyectos In-Building">
+        <div>
+            <h2>Proyectos In-Building</h2>
+            <p>El diseño de los proyectos In-Building se desarrolla por un equipo de ingenieros expertos en los cálculos de propagación de cobertura indoor y modelamientos de superficies, utilizando el software iBwave Design, estándar de la industria para el diseño de redes.</p>
+        </div>
+    </div>
+
+    <div class="service" id="Servicios Indoor Prediction">
+        <div class="color-boxi"></div>
+        <img src="img/ss2.png" alt="Servicios Indoor Prediction">
+        <div>
+            <h2>Servicios Indoor Prediction</h2>
+            <p>El servicio Indoor Prediction optimiza la cobertura y rendimiento de redes inalámbricas en espacios cerrados, utilizando tecnología avanzada para predecir áreas de baja señal y mejorar la distribución de redes, asegurando una conexión más confiable y eficiente en interiores.</p>
+        </div>
+    </div>
+
+    <div class="service" id="Servicios Planimetrías Isométricas">
+        <div class="color-box"></div>
+        <img src="img/ss3.png" alt="Servicios Planimetrías Isométricas">
+        <div>
+            <h2>Planimetrías Isométricas</h2>
+            <p>Las Planimetrías Isométricas garantizan una representación clara y precisa a escala en los documentos de anteproyectos, facilitando el despliegue y asegurando el cumplimiento exacto de lo proyectado.</p>
+        </div>
+    </div>
+
+    <div class="service" id="Diseños Eléctricos Telecom">
+        <div class="color-boxi"></div>
+        <img src="img/s4.png" alt="Diseños Eléctricos Telecom">
+        <div>
+            <h2>Diseños Eléctricos Telecom</h2>
+            <p>El Diseño Eléctrico Telecom para proyectos In-Building es desarrollado por nuestro ingeniero especializado, cumpliendo con toda la normativa chilena vigente.</p>
+        </div>
+    </div>
+
+    <div class="service" id="Mediciones Walk Test y Post Proceso">
+        <div class="color-box"></div>
+        <img src="img/s5.jpg" alt="Mediciones Walk Test y Post Proceso">
+        <div>
+            <h2>Mediciones Walk Test y Post Proceso</h2>
+            <p>Nuestro ingeniero RF realiza mediciones de cobertura, analiza el cumplimiento de KPIs y desarrolla soluciones basadas en los resultados de las mediciones iniciales, utilizando herramientas de medición y post-proceso como Nemoy y QualiPoc SwissQual.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Sobre Nosotros</h5>
+                <p>Ofrecemos soluciones de telecomunicaciones innovadoras y eficientes para ayudar a las empresas a crecer y conectar con el mundo de manera más fácil y rápida.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Enlaces Rápidos</h5>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Redes Sociales</h5>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+<div class="text-center">
+    <p>&copy; 2025 Action Soluciones. Todos los derechos reservados.</p>
+</div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Crea un Intersection Observer para detectar cuando los elementos entran en la vista
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            // Si el servicio entra en la vista
+            if (entry.isIntersecting) {
+                // Alterna entre 'visible-left' y 'visible-right' basado en el índice
+                if (index % 2 === 0) {
+                    entry.target.classList.add('visible-left');
+                } else {
+                    entry.target.classList.add('visible-right');
+                }
+                observer.unobserve(entry.target); // Deja de observar el elemento después de hacerlo visible
+            }
+        });
+    }, {
+        threshold: 0.5 // La animación se activa cuando el 50% del elemento es visible
+    });
+
+    // Observa todos los servicios
+    const services = document.querySelectorAll('.service');
+    services.forEach((service, index) => {
+        observer.observe(service);
+    });
+});
+
+    </script>
+</body>
+</html>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Crea un Intersection Observer para detectar cuando los elementos entran en la vista
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            // Si el servicio entra en la vista
+            if (entry.isIntersecting) {
+                // Alterna entre 'visible-left' y 'visible-right' basado en el índice
+                if (index % 2 === 0) {
+                    entry.target.classList.add('visible-left');
+                } else {
+                    entry.target.classList.add('visible-right');
+                }
+                observer.unobserve(entry.target); // Deja de observar el elemento después de hacerlo visible
+            }
+        });
+    }, {
+        threshold: 0.5 // La animación se activa cuando el 50% del elemento es visible
+    });
+
+    // Observa todos los servicios
+    const services = document.querySelectorAll('.service');
+    services.forEach((service, index) => {
+        observer.observe(service);
+    });
+});
+
+    </script>
+</body>
+</html>

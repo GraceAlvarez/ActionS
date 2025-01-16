@@ -1,0 +1,338 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.5s ease, padding 0.3s ease;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding-right: 100px;
+}
+
+nav.scrolled {
+    background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.91), rgba(0, 49, 108, 0.86),rgba(0, 49, 108, 0.975),rgba(0, 49, 108, 0.805), rgba(0, 49, 108, 0.86));
+    padding: 10px 50px;
+}
+
+nav .logo img {
+    transition: width 0.3s ease;
+}
+
+nav.scrolled .logo img {
+    width: 100px;
+}
+
+nav ul {
+list-style-type: none;
+display: flex;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff7f50;
+}
+
+/* Estilos generales de navegación */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff7f50;
+}
+
+/* Efecto de cambio de fondo cuando se hace scroll */
+nav.scrolled {
+    background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.91), rgba(0, 49, 108, 0.86), rgba(0, 49, 108, 0.975), rgba(0, 49, 108, 0.805), rgba(0, 49, 108, 0.86));
+    padding: 10px 50px;
+    padding-right: 100px;
+}
+
+/* Logo de la navegación */
+nav .logo img {
+    transition: width 0.3s ease;
+}
+
+nav.scrolled .logo img {
+    width: 100px;
+}
+
+/* Estilos para el submenú */
+nav ul li {
+    font-size: 20px;
+    position: relative; /* Necesario para que el submenú se posicione respecto a este li */
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    list-style: none;
+    display: none;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+nav ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s; /* Elimina el retraso de transición */
+}
+
+/* Estilo de los enlaces del submenú */
+nav ul li ul li a {
+    color: #00306c;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, padding 0.3s ease;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+/* Estilo de hover en los enlaces */
+nav ul li ul li a:hover {
+    background-color: #ff7f50;
+    color: white;
+    padding-left: 20px; /* Un pequeño desplazamiento para un efecto de profundidad */
+}
+
+/* Cambiar color de enlace principal si el submenú está visible */
+nav ul li.submenu:hover > a,
+nav ul li.submenu:focus-within > a {
+    color: #ff7f50;
+}
+
+/* Mejorar la visibilidad y estética de los items */
+nav ul li ul li {
+    padding: 5px 0;
+    margin: 0;
+}
+
+/* Sombra sutil en el submenú */
+nav ul li ul li a:hover {
+    box-shadow: 0 2px 8px rgba(255, 127, 80, 0.3); /* Sombra suave para los enlaces */
+}
+
+/* Agregar un borde superior a los submenús */
+nav ul li ul li:first-child a {
+    border-top: 2px solid #ff7f50;
+}
+
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00306c;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(0, 47, 108, 0.6)), url('background-image.jpg') no-repeat center center / cover;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.hero-content {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+z-index: 2;
+opacity: 0;
+transform: translateY(30px);
+animation: slideUpFadeInOut 3s ease forwards; /* Duración total de 5 segundos */
+}
+
+.hero-content h2 {
+font-family: 'Poppins', sans-serif;
+font-size: 2.5rem;
+font-weight: 600;
+margin-bottom: 20px;
+}
+
+.hero-content p {
+font-size: 1.1rem;
+max-width: 600px;
+margin: 0 auto;
+line-height: 1.5;
+}
+
+/* Keyframes para aparecer, mantenerse y desaparecer */
+@keyframes slideUpFadeInOut {
+0% {
+transform: translateY(30px); /* Desplazado hacia abajo */
+}
+20% {
+transform: translateY(0); /* Posición normal */
+}
+80% {
+transform: translateY(0); /* Mantenerse visible */
+}
+100% {
+transform: translateY(-30px); /* Desaparece desplazado hacia arriba */
+}
+}
+
+
+.hero-left {
+    background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,         /* Blanco sólido */
+    rgba(255, 255, 255, 0.9) 10%,      /* Inicio del degradado */
+    rgba(0, 48, 108, 0.9) 50%,
+    rgba(0, 48, 108, 0.9) 50%,           /* Azul semi-transparente en el centro */
+    rgba(0, 48, 108, 1) 90%,           /* Azul sólido */
+    #00306c 100%                       /* Azul final */
+),
+
+    url('background-image.jpg') no-repeat center center / cover;
+    color: white;
+    padding: 30px;
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 1s ease;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-left.visible {
+    transform: translateX(0);
+}
+
+.hero-left {
+display: flex;
+flex-direction: column; /* Alinea el contenido en columnas */
+align-items: center; /* Centra horizontalmente el contenido */
+justify-content: center; /* Centra verticalmente el contenido */
+padding: 40px; /* Agrega padding alrededor del contenido */
+text-align: center; /* Centra el texto */
+}
+
+.hero-left h3 {
+color: #fff;
+font-family: Open Sans, sans-serif;
+}
+
+.hero-left p {
+font-size: 1.1rem;
+margin: 20px 0;
+}
+
+.hero-left button {
+margin-top: 20px;
+padding: 10px 15px; /* Ajusta el padding para hacer el botón más corto */
+background-color: #ff7f50;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+width: 200px; /* Opcional: Ajusta el ancho del botón */
+}
+
+/* Efecto hover en el botón */
+.hero-left button:hover {
+background-color: #e76d5c; /* Color más oscuro en hover */
+}
+
+
+.section-title {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #00306c;
+    margin-bottom: 20px;
+}
+
+.fade-out {
+opacity: 0;
+transition: opacity 1s ease;
+}
+
+button:hover {
+background-color: #007bff;
+color: #fff;
+transition: 0.3s;
+}
+
+.section-title {
+position: relative;
+display: inline-block;
+margin-bottom: 30px;
+}
+.section-title::after {
+content: '';
+position: absolute;
+width: 50px;
+height: 3px;
+background: #007bff;
+bottom: -10px;
+left: 0;
+}
+.social-icons a {
+margin: 0 10px;
+color: white;
+font-size: 1.5em;
+}
